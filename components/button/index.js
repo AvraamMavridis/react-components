@@ -1,22 +1,31 @@
-import React, { Component, PropTypes } from 'react';
+/**
+* Button Component
+*
+* @author  Avraam Mavridis      <avr.mav@gmail.com>
+*
+*/
+
+import React, { Component, PropTypes }            from 'react';
 import { buttonStyle, disabledStyle, hoverStyle } from '../styles/button';
-import Proto from '../proto';
+import Proto                                      from '../proto';
 
 export default class Button extends Proto
 {
 
   static propTypes = {
-    label    : PropTypes.string,
-    name     : PropTypes.string,
-    type     : PropTypes.oneOf([ 'button', 'reset', 'submit' ] ),
-    children : PropTypes.node,
-    disabled : PropTypes.bool,
+    label       : PropTypes.string,
+    name        : PropTypes.string,
+    type        : PropTypes.oneOf([ 'button', 'reset', 'submit' ] ),
+    children    : PropTypes.node,
+    disabled    : PropTypes.bool,
+    nativeAttrs : PropTypes.object,
     ...Proto.propTypes
   };
 
   static defaultProps = {
-    type     : 'button',
-    disabled : void(0)
+    type             : 'button',
+    disabled         : void(0),
+    nativeAttributes : {}
   };
 
   constructor( props )
@@ -35,7 +44,15 @@ export default class Button extends Proto
   }
 
   render() {
-    const { label, children, disabled=void(0), type, name } = this.props;
+    const {
+      label,
+      children,
+      disabled,
+      type,
+      name,
+      className,
+      nativeAttributes
+    } = this.props;
 
     const _buttonLabel   = label ? label : children;
     const _name          = name ? name : _buttonLabel;
@@ -48,11 +65,17 @@ export default class Button extends Proto
                     onDoubleClick={ this.handleDoubleClick.bind( this ) }
                     onMouseOver={ this.handleMouseOver.bind( this ) }
                     onMouseOut={ this.handleMouseOut.bind( this ) }
+                    onMouseDown={ this.handleMouseOut.bind( this ) }
+                    onMouseEnter={ this.handleMouseEnter.bind( this ) }
+                    onMouseLeave={ this.handleMouseLeave.bind( this ) }
+                    onMouseUp={ this.handleMouseUp.bind( this ) }
+                    onContextMenu={ this.handleDragExit.bind( this ) }
                     type={ type }
                     ariaLabel={ _buttonLabel }
                     name={ _name }
                     role="button"
-                    className="content">
+                    className={ className }
+                    { ...nativeAttrs } >
               { _buttonLabel }
             </button>)
   }
