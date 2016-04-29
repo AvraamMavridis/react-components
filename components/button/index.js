@@ -51,14 +51,15 @@ export default class Button extends Proto
       type,
       name,
       className,
-      nativeAttrs
+      nativeAttrs,
+      style
     } = this.props;
 
     const _buttonLabel   = label ? label : children;
     const _name          = name ? name : _buttonLabel;
     const _disabledStyle = disabled ? disabledStyle : {};
     const _hoverStyle    = this.state.hover && !disabled ? hoverStyle : {};
-    const _buttonStyle   = { ...buttonStyle, ..._disabledStyle, ..._hoverStyle };
+    const _buttonStyle   = { ...buttonStyle, ...style, ..._disabledStyle, ..._hoverStyle };
 
     return (<button style={ _buttonStyle }
                     onClick={ this.handleClick.bind( this ) }
