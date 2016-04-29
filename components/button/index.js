@@ -23,9 +23,9 @@ export default class Button extends Proto
   };
 
   static defaultProps = {
-    type             : 'button',
-    disabled         : void(0),
-    nativeAttributes : {}
+    type        : 'button',
+    disabled    : void(0),
+    nativeAttrs : {}
   };
 
   constructor( props )
@@ -51,7 +51,7 @@ export default class Button extends Proto
       type,
       name,
       className,
-      nativeAttributes
+      nativeAttrs
     } = this.props;
 
     const _buttonLabel   = label ? label : children;
