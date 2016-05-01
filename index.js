@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import Tab from './components/Tab';
+import Tabs from './components/Tabs';
 
 export class App extends React.Component {
 	render() {
@@ -22,6 +24,13 @@ export class App extends React.Component {
 					<Button label="Another button" />
 					<Button label="Yet another button" />
 				</ButtonGroup>
+				<br></br>
+				<br></br>
+				<h3>{"<Tabs/> Component"}</h3>
+					<Tabs label="something">
+							<Tab label="something">content</Tab>
+							<Tab label="something">content</Tab>
+					</Tabs>
 			</div>
 		</div>);
 	}
