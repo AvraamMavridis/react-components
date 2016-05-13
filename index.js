@@ -28,7 +28,7 @@ export class App extends React.Component {
 				<br></br>
 				<h3>{"<Tabs/> Component"}</h3>
 					<Tabs label="something">
-							<Tab label="something">content</Tab>
+							<Tab label="something">somet</Tab>
 							<Tab label="something">content</Tab>
 					</Tabs>
 			</div>

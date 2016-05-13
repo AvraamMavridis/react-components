@@ -5,49 +5,36 @@
 *
 */
 
-import React, { Component, PropTypes }            from 'react';
-import { tabStyle } from '../styles/tab';
-import Proto                                      from '../proto';
+import React, { Component, PropTypes }  from 'react';
+import { tabStyle }                     from '../styles/tab';
+import Proto                            from '../proto';
 
-console.log( tabStyle );
 
 export default class Tab extends Proto
 {
-
-  static propTypes = {
-    label       : PropTypes.string,
-    children    : PropTypes.node,
-    ...Proto.propTypes
-  };
-
-  constructor( props )
-  {
-    super( props );
-  }
-
-  componentWillMount()
-  {
-    const { children } = this.props;
-
-
-    if( !Boolean( children ) )
+    static propTypes =
     {
-        console.error( '<Tab/> should wrap some content' );
+      label        : PropTypes.node.isRequired,
+      children     : PropTypes.node.isRequired,
+      titleClass   : PropTypes.string,
+      contentClass : PropTypes.string,
+      ...Proto.propTypes
+    };
+
+    constructor( props )
+    {
+        super( props );
     }
-  }
 
-  render() {
-    const {
-      label,
-      children,
-      className=''
-    } = this.props;
+    render()
+    {
+      const {
+        label,
+        children,
+        className=''
+      } = this.props;
 
-    console.log( tabStyle );
-
-
-    return (<div style={ tabStyle }
-                    onClick={ this.handleClick.bind( this ) }
+      return (<div  onClick={ this.handleClick.bind( this ) }
                     onDoubleClick={ this.handleDoubleClick.bind( this ) }
                     onMouseOver={ this.handleMouseOver.bind( this ) }
                     onMouseOut={ this.handleMouseOut.bind( this ) }
@@ -55,13 +42,10 @@ export default class Tab extends Proto
                     onMouseEnter={ this.handleMouseEnter.bind( this ) }
                     onMouseLeave={ this.handleMouseLeave.bind( this ) }
                     onMouseUp={ this.handleMouseUp.bind( this ) }
-                    onContextMenu={ this.handleDragExit.bind( this ) }
                     ariaLabel={ label }
-                    role="button"
-                    className={ className }
-                    >
-              <div style={ tabStyle }>Something</div>
-              { children }
-            </div>)
-  }
+                    role="tabpanel"
+                    className={ className } >
+                { children }
+              </div>)
+    }
 }
