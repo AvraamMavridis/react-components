@@ -5,11 +5,11 @@
 *
 */
 
-import React, { Component, PropTypes }            from 'react';
-import { buttonStyle, disabledStyle, hoverStyle } from '../styles/button';
-import Proto                                      from '../proto';
-import Tab                                        from '../Tab';
-import classNames                                 from 'classnames';
+import React, { Component, PropTypes } from 'react';
+import { headerStyle, labelStyle, activeTabStyle, contentStyle } from '../styles/tab';
+import Proto                           from '../proto';
+import Tab                             from '../Tab';
+import classNames                      from 'classnames';
 
 export default class Tabs extends Proto
 {
@@ -62,12 +62,13 @@ export default class Tabs extends Proto
    */
   renderHeader()
   {
-      const { children, cssMap } = this.props;
+      const { children, cssMap, tabClass } = this.props;
 
       return children.map( ( child, index ) => {
-          const tabClass = classNames( buttonStyle, { [ buttonStyle ] : index === this.state.activeTab }, child.props.titleClass );
+          const activeStyle = index === this.state.activeTab ? activeTabStyle : {};
 
           return (<span className={ tabClass }
+                        style={ { ...labelStyle, ...activeStyle } }
                         role="tab"
                         tabindex={ index }
                         key={ index }
@@ -81,19 +82,15 @@ export default class Tabs extends Proto
       const { children, cssMap, containerClass, contentClass, headerClass } = this.props;
       const content = children.filter( ( child, index ) => index === this.state.activeTab )[0];
 
-      const _containerClass = classNames( buttonStyle, containerClass );
-      const _contentClass = classNames( buttonStyle, contentClass );
-      const _headerClass = classNames( buttonStyle, headerClass );
-
       return (
-      <div className={ _containerClass } >
-          <div className={ _headerClass }>
+      <div className={ containerClass } >
+          <div style={ headerStyle } className={ headerClass }>
           {
               this.renderHeader()
           }
          </div>
 
-         <div className={ _contentClass }>
+         <div style={ contentStyle } className={ contentClass }>
              { content }
          </div>
       </div>);

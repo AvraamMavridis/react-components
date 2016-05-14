@@ -1,4 +1,4 @@
-import { main, white, disabled, mainHover } from './colors';
+import { main, white, disabled, mainHover, grey } from './colors';
 
 export const tabStyle = {
   background       : main,
@@ -11,11 +11,28 @@ export const tabStyle = {
   cursor           : 'pointer'
 };
 
-export const hoverStyle = {
-  background : mainHover
+export const headerStyle = {
+  background : grey,
+  padding : '10px 10px 0px 10px',
+  borderBottom: `3px solid ${mainHover}`
 };
 
-export const disabledStyle = {
-  background : disabled,
-  cursor     : 'default'
+export const contentStyle = {
+  background : grey,
+  padding : '10px',
+  borderRadius     : '2px',
+}
+
+export const labelStyle = {
+  background       : main,
+  color            : white,
+  border           : `1px solid ${grey}`,
+  display          :  'inline-block',
+  padding          : '10px',
+  borderRadius     : '5px 5px 0px 0px',
+  cursor           : 'pointer'
+};
+
+export const activeTabStyle = {
+  background : mainHover
 };

@@ -27,9 +27,18 @@ export class App extends React.Component {
 				<br></br>
 				<br></br>
 				<h3>{"<Tabs/> Component"}</h3>
-					<Tabs label="something">
-							<Tab label="something">somet</Tab>
-							<Tab label="something">content</Tab>
+					<Tabs>
+							<Tab label="Something">
+
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus turpis vel fringilla bibendum. Aliquam in enim mollis, fermentum sem a, ornare arcu. Curabitur malesuada ex id felis rhoncus venenatis. Donec vestibulum, lacus id molestie placerat, nibh urna pharetra orci, ut vestibulum magna odio vel justo. Ut non vulputate justo. Cras at tortor a sem imperdiet accumsan. Aliquam lacinia facilisis metus faucibus tincidunt. Pellentesque sollicitudin ac tellus convallis sodales. Donec mattis nibh interdum condimentum semper.
+
+							</Tab>
+							<Tab label="Something Else">
+
+								<Button label="I am a button" />
+								<br></br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus turpis vel fringilla bibendum. Aliquam in enim mollis, fermentum sem a, ornare arcu. Curabitur malesuada ex id felis rhoncus venenatis. Donec vestibulum, lacus id molestie placerat, nibh urna pharetra orci, ut vestibulum magna odio vel justo. Ut non vulputate justo. Cras at tortor a sem imperdiet accumsan. Aliquam lacinia facilisis metus faucibus tincidunt. Pellentesque sollicitudin ac tellus convallis sodales. Donec mattis nibh interdum condimentum semper.
+							</Tab>
 					</Tabs>
 			</div>
 		</div>);
